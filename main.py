@@ -2,32 +2,7 @@ import pandas as pd
 
 # ? pip install pandas openpyxl
 
-def get_data_neuma():
-    db_general = pd.read_excel('neuma_db.xlsx')
-
-    print(db_general.head())
-
-
-
-
-def get_data_main():
-    db_general = pd.read_csv('PUB_NOMBRES_PJ.txt', sep="\t")
-
-    # Crear la nueva columna "RUT_2" concatenando el valor de "rut" con un string
-    db_general['codigo_sn'] = 'CN'+db_general['RUT'].astype(str) + '-' +db_general['DV']
-
-    # Seleccionar solo los primeros 5 registros
-    data_limited = db_general.head(5)
-
-    # Exportar a un archivo Excel
-    output_file = "archivo_actualizado.xlsx"
-    data_limited.to_excel(output_file, index=False, engine="openpyxl")
-
-
-    # print(pb_nombre.head())
-    print('terminado.........')
-
-def demo():
+def main():
     # Leer el archivo de texto (PUB_NOMBRES_PJ.txt)
     db_general = pd.read_csv('PUB_NOMBRES_PJ.txt', sep="\t")
 
@@ -71,4 +46,4 @@ def demo():
     print('Exportación a Excel completada.')
     print('Archivo generado: ', output_file)
 
-demo()
+main()
